@@ -3,7 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import { cn } from "@flags/ui";
-import { ThemeProvider, ThemeToggle } from "@flags/ui/theme";
+import { ThemeProvider } from "@flags/ui/theme";
 import { Toaster } from "@flags/ui/toast";
 
 import { TRPCReactProvider } from "~/trpc/react";
@@ -15,21 +15,16 @@ import { env } from "~/env";
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
-      ? "https://turbo.t3.gg"
+      ? "https://getflags.co"
       : "http://localhost:3000",
   ),
-  title: "Create T3 Turbo",
-  description: "Simple monorepo with shared backend for web & mobile apps",
+  title: "Flags",
+  description: "Get instant feedback on your text conversations",
   openGraph: {
-    title: "Create T3 Turbo",
-    description: "Simple monorepo with shared backend for web & mobile apps",
-    url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@jullerino",
-    creator: "@jullerino",
+    title: "Flags",
+    description: "Get instant feedback on your text conversations",
+    url: "https://getflags.co",
+    siteName: "Flags",
   },
 };
 
@@ -52,9 +47,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TRPCReactProvider>{props.children}</TRPCReactProvider>
-          <div className="absolute bottom-4 right-4">
-            <ThemeToggle />
-          </div>
           <Toaster />
         </ThemeProvider>
       </body>
