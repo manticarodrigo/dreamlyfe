@@ -1,4 +1,0 @@
-{
-  "extends": "@flags/tsconfig/base.json",
-  "include": ["routes"]
-}

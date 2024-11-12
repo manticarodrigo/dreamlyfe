@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@flags/api": "workspace:*",
-    "@flags/auth": "workspace:*",
     "@flags/db": "workspace:*",
     "@flags/ui": "workspace:*",
     "@flags/validators": "workspace:*",

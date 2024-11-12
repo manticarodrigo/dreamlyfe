@@ -4,7 +4,6 @@ import { createHydrationHelpers } from "@trpc/react-query/rsc";
 
 import type { AppRouter } from "@flags/api";
 import { createCaller, createTRPCContext } from "@flags/api";
-import { auth } from "@flags/auth";
 
 import { createQueryClient } from "./query-client";
 
@@ -17,7 +16,6 @@ const createContext = cache(async () => {
   heads.set("x-trpc-source", "rsc");
 
   return createTRPCContext({
-    session: await auth(),
     headers: heads,
   });
 });

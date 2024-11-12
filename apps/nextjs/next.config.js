@@ -11,7 +11,6 @@ const config = {
   /** Enables hot reloading for local packages without a build step */
   transpilePackages: [
     "@flags/api",
-    "@flags/auth",
     "@flags/db",
     "@flags/ui",
     "@flags/validators",
