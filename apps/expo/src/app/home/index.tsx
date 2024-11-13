@@ -13,7 +13,6 @@ export default function Home() {
             <TouchableOpacity
               className="h-8 w-8 items-center justify-center"
               onPress={() => {
-                // eslint-disable-next-line no-console
                 console.log("Pressed");
               }}
             >
@@ -33,7 +32,6 @@ export default function Home() {
             <TouchableOpacity
               className="h-8 w-8 items-center justify-center rounded-full border-2 border-foreground"
               onPress={() => {
-                // eslint-disable-next-line no-console
                 console.log("Pressed");
               }}
             >
@@ -60,7 +58,6 @@ export default function Home() {
         <TouchableOpacity
           className="h-14 w-14 items-center justify-center rounded-full border-2 border-foreground"
           onPress={() => {
-            // eslint-disable-next-line no-console
             console.log("Pressed");
           }}
         >
@@ -69,7 +66,6 @@ export default function Home() {
         <TouchableOpacity
           className="h-14 flex-1 items-center justify-center rounded-full border-2 border-foreground/10 bg-foreground/5"
           onPress={() => {
-            // eslint-disable-next-line no-console
             console.log("Pressed");
           }}
         >
