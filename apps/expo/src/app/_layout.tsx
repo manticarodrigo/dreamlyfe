@@ -7,11 +7,17 @@ import { TRPCProvider } from "~/utils/api";
 
 import "../styles.css";
 
+import { SheetProvider } from "react-native-actions-sheet";
+
+import "~/components/sheets";
+
 export default function RootLayout() {
   return (
     <TRPCProvider>
-      <Slot />
-      <StatusBar />
+      <SheetProvider context="global">
+        <Slot />
+        <StatusBar />
+      </SheetProvider>
     </TRPCProvider>
   );
 }

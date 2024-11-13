@@ -5,6 +5,7 @@ import { Link, Stack } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 
 import type { RouterOutputs } from "~/utils/api";
+import { Screen } from "~/components/screen";
 import { api } from "~/utils/api";
 
 function PostCard(props: {
@@ -99,31 +100,33 @@ export default function Home() {
   });
 
   return (
-    <SafeAreaView>
-      <Stack.Screen options={{ title: "Home Page" }} />
-      <View className="h-full w-full p-4">
-        <Text className="pb-2 text-center text-5xl font-bold text-foreground">
-          Create <Text className="text-primary">T3</Text> Turbo
-        </Text>
-
-        <View className="py-2">
-          <Text className="font-semibold italic text-primary">
-            Press on a post
+    <Screen>
+      <SafeAreaView>
+        <Stack.Screen options={{ title: "Home Page" }} />
+        <View className="h-full w-full p-4">
+          <Text className="pb-2 text-center text-5xl font-bold text-foreground">
+            Create <Text className="text-primary">T3</Text> Turbo
           </Text>
+
+          <View className="py-2">
+            <Text className="font-semibold italic text-primary">
+              Press on a post
+            </Text>
+          </View>
+          <FlashList
+            data={postQuery.data}
+            estimatedItemSize={20}
+            ItemSeparatorComponent={() => <View className="h-2" />}
+            renderItem={(p) => (
+              <PostCard
+                post={p.item}
+                onDelete={() => deletePostMutation.mutate(p.item.id)}
+              />
+            )}
+          />
+          <CreatePost />
         </View>
-        <FlashList
-          data={postQuery.data}
-          estimatedItemSize={20}
-          ItemSeparatorComponent={() => <View className="h-2" />}
-          renderItem={(p) => (
-            <PostCard
-              post={p.item}
-              onDelete={() => deletePostMutation.mutate(p.item.id)}
-            />
-          )}
-        />
-        <CreatePost />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </Screen>
   );
 }
