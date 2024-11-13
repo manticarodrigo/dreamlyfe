@@ -1,132 +1,40 @@
-import { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import type { VideoSource } from "expo-video";
+import { Pressable, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Link, Stack } from "expo-router";
-import { FlashList } from "@shopify/flash-list";
+import { router } from "expo-router";
+import { useVideoPlayer, VideoView } from "expo-video";
 
-import type { RouterOutputs } from "~/utils/api";
-import { api } from "~/utils/api";
-
-function PostCard(props: {
-  post: RouterOutputs["post"]["all"][number];
-  onDelete: () => void;
-}) {
-  return (
-    <View className="flex flex-row rounded-lg bg-muted p-4">
-      <View className="flex-grow">
-        <Link
-          asChild
-          href={{
-            pathname: "/post/[id]",
-            params: { id: props.post.id },
-          }}
-        >
-          <Pressable className="">
-            <Text className="text-xl font-semibold text-primary">
-              {props.post.title}
-            </Text>
-            <Text className="mt-2 text-foreground">{props.post.content}</Text>
-          </Pressable>
-        </Link>
-      </View>
-      <Pressable onPress={props.onDelete}>
-        <Text className="font-bold uppercase text-primary">Delete</Text>
-      </Pressable>
-    </View>
-  );
-}
-
-function CreatePost() {
-  const utils = api.useUtils();
-
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  const { mutate, error } = api.post.create.useMutation({
-    async onSuccess() {
-      setTitle("");
-      setContent("");
-      await utils.post.all.invalidate();
-    },
-  });
-
-  return (
-    <View className="mt-4 flex gap-2">
-      <TextInput
-        className="items-center rounded-md border border-input bg-background px-3 text-lg leading-[1.25] text-foreground"
-        value={title}
-        onChangeText={setTitle}
-        placeholder="Title"
-      />
-      {error?.data?.zodError?.fieldErrors.title && (
-        <Text className="mb-2 text-destructive">
-          {error.data.zodError.fieldErrors.title}
-        </Text>
-      )}
-      <TextInput
-        className="items-center rounded-md border border-input bg-background px-3 text-lg leading-[1.25] text-foreground"
-        value={content}
-        onChangeText={setContent}
-        placeholder="Content"
-      />
-      {error?.data?.zodError?.fieldErrors.content && (
-        <Text className="mb-2 text-destructive">
-          {error.data.zodError.fieldErrors.content}
-        </Text>
-      )}
-      <Pressable
-        className="flex items-center rounded bg-primary p-2"
-        onPress={() => {
-          mutate({
-            title,
-            content,
-          });
-        }}
-      >
-        <Text className="text-foreground">Create</Text>
-      </Pressable>
-    </View>
-  );
-}
+const videoSource: VideoSource =
+  "https://s3-figma-videos-production-sig.figma.com/video/997496200047939199/TEAM/560e/693d/-01a0-459f-95a2-aca810aee975?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=magFqaPFIXAh9e4BzVbqiFas1Yw5yw2457H~DUhjfJWZD1nTITdXK-cMosDUQlhVnW7evl-wu9mwW9FTyr2wMzG8PNSXdBnbIDHWSomN5MIvuIa~CfVeAfL3T8cbOTr9V44tzX-uZfbAbIdJulBo4KYQrmJSLAn-qs8rLOnPOuCqEdgSiND8W8AxXKHgRKg8KqURd6YQ~FlEchjg-9KuoFuKNiiEl6gr9ZQfy8DPTP-mQNQdkmPl9BicY~eFoEnUA3boyoymhl3iMClNDOoJPjiNDNiuHHy80ErC-JLJOKyPfOXS9TJlkc0bXKefjCiYhmDINQgWpJ~PyYEhPk6GgQ__";
 
 export default function Index() {
-  const utils = api.useUtils();
-
-  const postQuery = api.post.all.useQuery();
-
-  const deletePostMutation = api.post.delete.useMutation({
-    onSettled: () => utils.post.all.invalidate(),
+  const player = useVideoPlayer(videoSource, (player) => {
+    player.muted = true;
+    player.loop = true;
+    player.play();
   });
 
   return (
-    <SafeAreaView>
-      {/* Changes page title visible on the header */}
-      <Stack.Screen options={{ title: "Home Page" }} />
-      <View className="h-full w-full p-4">
-        <Text className="pb-2 text-center text-5xl font-bold text-foreground">
-          Create <Text className="text-primary">T3</Text> Turbo
+    <SafeAreaView style={{ flex: 1 }}>
+      <VideoView
+        contentFit="cover"
+        nativeControls={false}
+        style={StyleSheet.absoluteFill}
+        player={player}
+      />
+      <Pressable
+        className="flex-1 flex-col justify-between pb-6 pt-8"
+        onPress={() => {
+          router.replace("/home");
+        }}
+      >
+        <Text className="text-center text-xl font-black uppercase text-foreground">
+          Find your flags
         </Text>
-
-        <View className="py-2">
-          <Text className="font-semibold italic text-primary">
-            Press on a post
-          </Text>
-        </View>
-
-        <FlashList
-          data={postQuery.data}
-          estimatedItemSize={20}
-          ItemSeparatorComponent={() => <View className="h-2" />}
-          renderItem={(p) => (
-            <PostCard
-              post={p.item}
-              onDelete={() => deletePostMutation.mutate(p.item.id)}
-            />
-          )}
-        />
-
-        <CreatePost />
-      </View>
+        <Text className="text-center text-lg font-medium text-foreground">
+          Tap anywhere to start
+        </Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
