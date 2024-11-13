@@ -87,8 +87,7 @@ To get it running, follow the steps below:
 pnpm i
 
 # Configure environment variables
-# There is an `.env.example` in the root directory you can use for reference
-cp .env.example .env
+# Pull variables from vercel using vercel cli into a .env
 
 # Push the Drizzle schema to the database
 pnpm db:push
