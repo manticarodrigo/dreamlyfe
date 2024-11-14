@@ -2,24 +2,29 @@ import { View } from "react-native";
 
 import { Button } from "./button";
 
-export function RadioGroup({
+export interface RadioGroupOptionValue<T extends string> {
+  value: T;
+  label: string;
+}
+
+export function RadioGroup<T extends string>({
   options,
   selected,
   onChange,
 }: {
-  options: string[];
-  selected: string;
-  onChange: (value: string) => void;
+  options: RadioGroupOptionValue<T>[];
+  selected: T | null | undefined;
+  onChange: (value: T) => void;
 }) {
   return (
     <View className="flex-row gap-2">
       {options.map((option) => (
         <Button
-          key={option}
-          variant={selected === option ? "primary" : "secondary"}
-          onPress={() => onChange(option)}
+          key={option.value}
+          variant={selected === option.value ? "primary" : "secondary"}
+          onPress={() => onChange(option.value)}
         >
-          {option}
+          {option.label}
         </Button>
       ))}
     </View>

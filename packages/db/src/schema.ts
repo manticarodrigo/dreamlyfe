@@ -1,5 +1,5 @@
-import { sql } from "drizzle-orm";
-import { pgTable } from "drizzle-orm/pg-core";
+import { relations, sql } from "drizzle-orm";
+import { pgEnum, pgTable } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -24,8 +24,63 @@ export const CreatePostSchema = createInsertSchema(Post, {
 
 export const User = pgTable("user", (t) => ({
   id: t.uuid().notNull().primaryKey().defaultRandom(),
-  name: t.varchar({ length: 255 }),
-  email: t.varchar({ length: 255 }).notNull(),
-  emailVerified: t.timestamp({ mode: "date", withTimezone: true }),
-  image: t.varchar({ length: 255 }),
+  createdAt: t.timestamp().defaultNow().notNull(),
+  updatedAt: t
+    .timestamp({ mode: "date", withTimezone: true })
+    .$onUpdateFn(() => sql`now()`),
 }));
+
+export const UserRelations = relations(User, ({ one }) => ({
+  profile: one(Profile),
+}));
+
+export const CreateUserSchema = createInsertSchema(User, {}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const gendersEnum = pgEnum("genders", ["FEMALE", "MALE", "OTHER"]);
+
+export const relationshipStatus = pgEnum("relationship_status", [
+  "DATING",
+  "RELATIONSHIP",
+  "MARRIED",
+]);
+
+export const relationshipDuration = pgEnum("relationship_duration", [
+  "LESS_THAN_1_WEEK",
+  "LESS_THAN_1_MONTH",
+  "LESS_THAN_6_MONTHS",
+  "LESS_THAN_1_YEAR",
+  "1_TO_2_YEARS",
+  "3_TO_5_YEARS",
+  "MORE_THAN_5_YEARS",
+]);
+
+export const Profile = pgTable("profile", (t) => ({
+  id: t.uuid().notNull().primaryKey().defaultRandom(),
+  gender: gendersEnum(),
+  genderPreference: gendersEnum(),
+  relationshipStatus: relationshipStatus(),
+  relationshipDuration: relationshipDuration(),
+  userId: t
+    .uuid()
+    .notNull()
+    .unique()
+    .references(() => User.id, { onDelete: "cascade" }),
+}));
+
+export const ProfileRelations = relations(Profile, ({ one }) => ({
+  user: one(User, { fields: [Profile.userId], references: [User.id] }),
+}));
+
+export const CreateProfileSchema = createInsertSchema(Profile, {
+  gender: z.enum(gendersEnum.enumValues),
+  genderPreference: z.enum(gendersEnum.enumValues),
+  relationshipStatus: z.enum(relationshipStatus.enumValues),
+  relationshipDuration: z.enum(relationshipDuration.enumValues),
+  userId: z.string(),
+}).omit({
+  id: true,
+});

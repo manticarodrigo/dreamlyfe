@@ -23,7 +23,7 @@ export default function Index() {
         player={player}
       />
       <Pressable
-        className="flex-1 flex-col justify-between pb-6 pt-8"
+        className="flex-1 justify-between pb-6 pt-8"
         onPress={() => {
           router.replace("/home");
         }}
