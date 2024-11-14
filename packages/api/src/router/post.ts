@@ -1,7 +1,8 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { z } from "zod";
+
 import { desc, eq } from "@dreamlyfe/db";
 import { CreatePostSchema, Post } from "@dreamlyfe/db/schema";
-import { z } from "zod";
 
 import { publicProcedure } from "../trpc";
 

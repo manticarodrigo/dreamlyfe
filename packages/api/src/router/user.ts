@@ -1,4 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { z } from "zod";
+
 import { eq } from "@dreamlyfe/db";
 import {
   CreateProfileSchema,
@@ -6,7 +8,6 @@ import {
   Profile,
   User,
 } from "@dreamlyfe/db/schema";
-import { z } from "zod";
 
 import { publicProcedure } from "../trpc";
 
