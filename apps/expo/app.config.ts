@@ -39,5 +39,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     tsconfigPaths: true,
     typedRoutes: true,
   },
-  plugins: ["expo-router", "expo-video"],
+  plugins: ["expo-router", "expo-video", "expo-secure-store"],
 });

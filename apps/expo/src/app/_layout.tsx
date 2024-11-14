@@ -16,7 +16,7 @@ export default function RootLayout() {
     <TRPCProvider>
       <SheetProvider context="global">
         <Slot />
-        <StatusBar />
+        <StatusBar style="light" />
       </SheetProvider>
     </TRPCProvider>
   );
