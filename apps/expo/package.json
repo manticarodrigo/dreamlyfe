@@ -1,5 +1,5 @@
 {
-  "name": "@flags/expo",
+  "name": "@dreamlyfe/expo",
   "version": "0.1.0",
   "private": true,
   "main": "index.ts",
@@ -53,11 +53,11 @@
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",
     "@babel/runtime": "^7.25.7",
-    "@flags/api": "workspace:*",
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tailwind-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/api": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tailwind-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "@types/babel__core": "^7.20.5",
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
@@ -65,5 +65,5 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

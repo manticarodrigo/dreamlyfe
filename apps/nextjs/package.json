@@ -1,5 +1,5 @@
 {
-  "name": "@flags/nextjs",
+  "name": "@dreamlyfe/nextjs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,10 +14,10 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@flags/api": "workspace:*",
-    "@flags/db": "workspace:*",
-    "@flags/ui": "workspace:*",
-    "@flags/validators": "workspace:*",
+    "@dreamlyfe/api": "workspace:*",
+    "@dreamlyfe/db": "workspace:*",
+    "@dreamlyfe/ui": "workspace:*",
+    "@dreamlyfe/validators": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tanstack/react-query": "catalog:",
     "@trpc/client": "catalog:",
@@ -31,10 +31,10 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tailwind-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tailwind-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "@types/node": "^20.16.11",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
@@ -45,5 +45,5 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

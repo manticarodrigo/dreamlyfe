@@ -6,11 +6,10 @@
  * tl;dr - this is where all the tRPC server stuff is created and plugged in.
  * The pieces you will need to use are documented accordingly near the end
  */
+import { db } from "@dreamlyfe/db/client";
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-
-import { db } from "@flags/db/client";
 
 /**
  * 1. CONTEXT

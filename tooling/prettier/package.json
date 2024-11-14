@@ -1,5 +1,5 @@
 {
-  "name": "@flags/prettier-config",
+  "name": "@dreamlyfe/prettier-config",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -17,8 +17,8 @@
     "prettier-plugin-tailwindcss": "^0.6.8"
   },
   "devDependencies": {
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

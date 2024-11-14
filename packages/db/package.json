@@ -1,5 +1,5 @@
 {
-  "name": "@flags/db",
+  "name": "@dreamlyfe/db",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -36,14 +36,14 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.2",
     "drizzle-kit": "^0.26.2",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

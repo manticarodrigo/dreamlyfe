@@ -1,10 +1,9 @@
-import type { Metadata, Viewport } from "next";
+import { cn } from "@dreamlyfe/ui";
+import { ThemeProvider } from "@dreamlyfe/ui/theme";
+import { Toaster } from "@dreamlyfe/ui/toast";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-
-import { cn } from "@flags/ui";
-import { ThemeProvider } from "@flags/ui/theme";
-import { Toaster } from "@flags/ui/toast";
+import type { Metadata, Viewport } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -15,16 +14,16 @@ import { env } from "~/env";
 export const metadata: Metadata = {
   metadataBase: new URL(
     env.VERCEL_ENV === "production"
-      ? "https://getflags.co"
+      ? "https://dreamlyfe.club"
       : "http://localhost:3000",
   ),
-  title: "Flags",
-  description: "Get instant feedback on your text conversations",
+  title: "DreamLyfe",
+  description: "Manifest your dreams",
   openGraph: {
-    title: "Flags",
-    description: "Get instant feedback on your text conversations",
-    url: "https://getflags.co",
-    siteName: "Flags",
+    title: "DreamLyfe",
+    description: "Manifest your dreams",
+    url: "https://dreamlyfe.club",
+    siteName: "DreamLyfe",
   },
 };
 

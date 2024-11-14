@@ -1,13 +1,12 @@
 import type { TRPCRouterRecord } from "@trpc/server";
-import { z } from "zod";
-
-import { eq } from "@flags/db";
+import { eq } from "@dreamlyfe/db";
 import {
   CreateProfileSchema,
   CreateUserSchema,
   Profile,
   User,
-} from "@flags/db/schema";
+} from "@dreamlyfe/db/schema";
+import { z } from "zod";
 
 import { publicProcedure } from "../trpc";
 

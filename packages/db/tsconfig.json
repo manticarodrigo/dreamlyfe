@@ -1,5 +1,5 @@
 {
-  "extends": "@flags/tsconfig/internal-package.json",
+  "extends": "@dreamlyfe/tsconfig/internal-package.json",
   "include": ["src"],
   "exclude": ["node_modules"]
 }

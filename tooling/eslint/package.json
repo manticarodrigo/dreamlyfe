@@ -1,5 +1,5 @@
 {
-  "name": "@flags/eslint-config",
+  "name": "@dreamlyfe/eslint-config",
   "private": true,
   "version": "0.3.0",
   "type": "module",
@@ -24,12 +24,12 @@
     "typescript-eslint": "^8.9.0"
   },
   "devDependencies": {
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "@types/eslint__js": "8.42.3",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

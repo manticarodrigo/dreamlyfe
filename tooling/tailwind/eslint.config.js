@@ -1,6 +1,6 @@
 // FIXME: This kinda stinks...
 /// <reference types="../../tooling/eslint/types.d.ts" />
 
-import baseConfig from "@flags/eslint-config/base";
+import baseConfig from "@dreamlyfe/eslint-config/base";
 
 export default [...baseConfig];

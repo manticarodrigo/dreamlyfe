@@ -10,10 +10,10 @@ const config = {
 
   /** Enables hot reloading for local packages without a build step */
   transpilePackages: [
-    "@flags/api",
-    "@flags/db",
-    "@flags/ui",
-    "@flags/validators",
+    "@dreamlyfe/api",
+    "@dreamlyfe/db",
+    "@dreamlyfe/ui",
+    "@dreamlyfe/validators",
   ],
 
   /** We already do linting and typechecking as separate tasks in CI */

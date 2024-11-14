@@ -1,5 +1,5 @@
 {
-  "name": "@flags/validators",
+  "name": "@dreamlyfe/validators",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -22,12 +22,12 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

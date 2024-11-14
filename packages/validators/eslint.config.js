@@ -1,4 +1,4 @@
-import baseConfig from "@flags/eslint-config/base";
+import baseConfig from "@dreamlyfe/eslint-config/base";
 
 /** @type {import('typescript-eslint').Config} */
 export default [

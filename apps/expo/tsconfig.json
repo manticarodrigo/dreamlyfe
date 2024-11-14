@@ -1,5 +1,5 @@
 {
-  "extends": ["@flags/tsconfig/base.json"],
+  "extends": ["@dreamlyfe/tsconfig/base.json"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

@@ -1,6 +1,5 @@
+import { appRouter, createTRPCContext } from "@dreamlyfe/api";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-
-import { appRouter, createTRPCContext } from "@flags/api";
 
 export const runtime = "edge";
 

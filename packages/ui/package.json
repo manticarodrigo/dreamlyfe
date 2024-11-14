@@ -1,5 +1,5 @@
 {
-  "name": "@flags/ui",
+  "name": "@dreamlyfe/ui",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -39,10 +39,10 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tailwind-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tailwind-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
     "prettier": "catalog:",
@@ -54,5 +54,5 @@
     "react": "catalog:react18",
     "zod": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

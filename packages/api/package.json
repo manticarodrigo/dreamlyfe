@@ -1,5 +1,5 @@
 {
-  "name": "@flags/api",
+  "name": "@dreamlyfe/api",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,19 +19,19 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@flags/db": "workspace:*",
-    "@flags/validators": "workspace:*",
+    "@dreamlyfe/db": "workspace:*",
+    "@dreamlyfe/validators": "workspace:*",
     "@trpc/server": "catalog:",
     "superjson": "2.2.1",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }

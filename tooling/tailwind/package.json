@@ -1,5 +1,5 @@
 {
-  "name": "@flags/tailwind-config",
+  "name": "@dreamlyfe/tailwind-config",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -20,12 +20,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@flags/eslint-config": "workspace:*",
-    "@flags/prettier-config": "workspace:*",
-    "@flags/tsconfig": "workspace:*",
+    "@dreamlyfe/eslint-config": "workspace:*",
+    "@dreamlyfe/prettier-config": "workspace:*",
+    "@dreamlyfe/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@flags/prettier-config"
+  "prettier": "@dreamlyfe/prettier-config"
 }
