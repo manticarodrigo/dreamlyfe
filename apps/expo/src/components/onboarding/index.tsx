@@ -34,7 +34,7 @@ const pages = [
         <View className="flex-1 items-end">
           <Image
             source={require("../../../assets/images/Ellipse.png")}
-            style={{ width: 234, height: 234 }}
+            style={{ width: 310, height: 310 }}
           />
         </View>
         <View className="mt-auto items-center">
@@ -66,7 +66,7 @@ const pages = [
           <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
             <Image
               source={require("../../../assets/images/Ellipse.png")}
-              style={{ width: 410, height: 410 }}
+              style={{ width: 500, height: 500 }}
             />
           </View>
           <View className="items-center gap-4">
@@ -99,7 +99,7 @@ const pages = [
           <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
             <Image
               source={require("../../../assets/images/Ellipse.png")}
-              style={{ width: 410, height: 410 }}
+              style={{ width: 500, height: 500 }}
             />
           </View>
           <View className="items-center gap-4">
@@ -132,7 +132,7 @@ const pages = [
           <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
             <Image
               source={require("../../../assets/images/Ellipse.png")}
-              style={{ width: 410, height: 410 }}
+              style={{ width: 500, height: 500 }}
             />
           </View>
           <View className="items-center gap-4">
