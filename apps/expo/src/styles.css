@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%; /* white */
-  --foreground: 45 6% 24%; /* #3D3C36 in HSL */
-  --card: 220 70% 60%; /* #497DE7 */
-  --card-foreground: 0 0% 100%; /* white */
-  --popover: 330 100% 90%; /* #FCC4E1 */
-  --popover-foreground: 0 0% 0%; /* black */
+  --background: 0 0% 100%;
+  --foreground: 45 6% 24%;
+  --card: 220 70% 60%;
+  --card-foreground: 0 0% 100%;
+  --popover: 330 100% 90%;
+  --popover-foreground: 0 0% 0%;
   --primary: 233 98% 65%;
-  --primary-foreground: 0 0% 100%; /* white */
-  --secondary: 330 100% 90%; /* #FCC4E1 */
-  --secondary-foreground: 0 0% 0%; /* black */
-  --muted: 210 100% 95%; /* #D1E9FC */
-  --muted-foreground: 0 0% 0%; /* black */
-  --accent: 220 70% 60%; /* #497DE7 */
-  --accent-foreground: 0 0% 100%; /* white */
-  --destructive: 330 100% 90%; /* #FCC4E1 */
-  --destructive-foreground: 0 0% 0%; /* black */
-  --border: 210 100% 95%; /* #D1E9FC */
-  --input: 210 100% 95%; /* #D1E9FC */
-  --ring: 220 70% 60%; /* #497DE7 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 330 100% 90%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 210 100% 95%;
+  --muted-foreground: 0 0% 0%;
+  --accent: 220 70% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 330 100% 90%;
+  --destructive-foreground: 0 0% 0%;
+  --border: 210 100% 95%;
+  --input: 210 100% 95%;
+  --ring: 220 70% 60%;
   --radius: 0.5rem;
 }

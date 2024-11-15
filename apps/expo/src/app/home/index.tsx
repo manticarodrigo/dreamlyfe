@@ -1,7 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { SheetManager } from "react-native-actions-sheet";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Image } from "expo-image";
 import { Link, Stack } from "expo-router";
 import { Menu, Shield, SlidersHorizontal } from "lucide-react-native";
 
@@ -25,15 +24,6 @@ export default function Home() {
               >
                 <Menu size={32} color="white" />
               </TouchableOpacity>
-            ),
-            headerTitle: () => (
-              <Image
-                source={
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports
-                  require("../../../assets/icon.svg")
-                }
-                style={{ width: 32.71, height: 32 }}
-              />
             ),
             headerRight: () => (
               <TouchableOpacity

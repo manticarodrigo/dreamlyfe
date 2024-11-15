@@ -37,20 +37,24 @@ const pages = [
             style={{ width: 234, height: 234 }}
           />
         </View>
-        <View className="mt-auto px-12 py-40">
-          <Text className="text-2xl font-semibold leading-10 text-foreground">
-            Hi there! 👋
-          </Text>
-          <Text className="flex-row text-2xl font-semibold leading-10 text-foreground">
-            Welcome to{" "}
-            <Image
-              source={require("../../../assets/images/DreamLyfe.png")}
-              style={{ width: 155, height: 36 }}
-            />
-          </Text>
-          <Text className="text-2xl font-semibold leading-10 text-foreground">
-            Ready to experience a day in your dream life?
-          </Text>
+        <View className="mt-auto items-center">
+          <View className="mt-auto max-w-sm px-6 py-40">
+            <Text className="text-3xl font-semibold text-foreground">
+              Hi there! 👋
+            </Text>
+            <View className="flex-row items-center gap-2">
+              <Text className="flex-row text-3xl font-semibold text-foreground">
+                Welcome to
+              </Text>
+              <Image
+                source={require("../../../assets/images/DreamLyfe.png")}
+                style={{ width: 155, height: 36 }}
+              />
+            </View>
+            <Text className="text-3xl font-semibold text-foreground">
+              Ready to experience a day in your dream life?
+            </Text>
+          </View>
         </View>
       </Page>
     ),
@@ -58,14 +62,99 @@ const pages = [
   {
     children: (
       <Page>
-        <Text className="text-center text-3xl font-semibold leading-10 text-foreground">
-          Hi there! 👋 Welcome to{" "}
-          <Image
-            source={require("../../../assets/images/DreamLyfe.png")}
-            style={{ width: 155, height: 36 }}
-          />
-          Ready to experience a day in your dream life?
-        </Text>
+        <View className="relative flex-1 items-center justify-center gap-8 p-12">
+          <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
+            <Image
+              source={require("../../../assets/images/Ellipse.png")}
+              style={{ width: 410, height: 410 }}
+            />
+          </View>
+          <View className="items-center gap-4">
+            <Image
+              source={require("../../../assets/images/DreamLyfe.png")}
+              style={{ width: 155, height: 36 }}
+            />
+            <Image
+              source={require("../../../assets/images/onboarding/WhereDoYouLive.png")}
+              style={{ width: 264, height: 301 }}
+            />
+          </View>
+          <View className="max-w-xs gap-4">
+            <Text className="text-3xl font-semibold text-foreground">
+              See Your Dream Life Unfold
+            </Text>
+            <Text className="text-lg text-foreground">
+              From stunning sunsets to personal achievements, get a glimpse of
+              what your ideal life could look like.
+            </Text>
+          </View>
+        </View>
+      </Page>
+    ),
+  },
+  {
+    children: (
+      <Page>
+        <View className="relative flex-1 items-center justify-center gap-8 p-12">
+          <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
+            <Image
+              source={require("../../../assets/images/Ellipse.png")}
+              style={{ width: 410, height: 410 }}
+            />
+          </View>
+          <View className="items-center gap-4">
+            <Image
+              source={require("../../../assets/images/DreamLyfe.png")}
+              style={{ width: 155, height: 36 }}
+            />
+            <Image
+              source={require("../../../assets/images/onboarding/TodoList.png")}
+              style={{ width: 264, height: 301 }}
+            />
+          </View>
+          <View className="max-w-xs gap-4">
+            <Text className="text-3xl font-semibold text-foreground">
+              Craft Each Day to Reach Your Goals
+            </Text>
+            <Text className="text-lg text-foreground">
+              We break down your big dreams into achievable daily actions,
+              guiding you to your best life step-by-step.
+            </Text>
+          </View>
+        </View>
+      </Page>
+    ),
+  },
+  {
+    children: (
+      <Page>
+        <View className="relative flex-1 items-center justify-center gap-8 p-12">
+          <View className="absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
+            <Image
+              source={require("../../../assets/images/Ellipse.png")}
+              style={{ width: 410, height: 410 }}
+            />
+          </View>
+          <View className="items-center gap-4">
+            <Image
+              source={require("../../../assets/images/DreamLyfe.png")}
+              style={{ width: 155, height: 36 }}
+            />
+            <Image
+              source={require("../../../assets/images/onboarding/VisionBoard.png")}
+              style={{ width: 264, height: 301 }}
+            />
+          </View>
+          <View className="max-w-xs gap-4">
+            <Text className="text-3xl font-semibold text-foreground">
+              Believe, Act,{"\n"}Receive, Repeat
+            </Text>
+            <Text className="text-lg text-foreground">
+              Manifesting your dream life starts with clarity, intention, and
+              action—are you ready?
+            </Text>
+          </View>
+        </View>
       </Page>
     ),
   },
