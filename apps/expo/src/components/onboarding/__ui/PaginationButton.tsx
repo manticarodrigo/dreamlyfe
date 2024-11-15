@@ -7,6 +7,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
+import { ArrowLeft } from "lucide-react-native";
 
 import { AnimatedButton } from "~/components/button";
 
@@ -51,6 +52,12 @@ export function PaginationButton({ currentIndex, length, flatListRef }: Props) {
     };
   }, [currentIndex, length]);
 
+  const backBtnStyle = useAnimatedStyle(() => {
+    return {
+      opacity: currentIndex.value > 0 ? withTiming(1) : withTiming(0),
+    };
+  }, [currentIndex, length]);
+
   const onPress = useCallback(() => {
     if (currentIndex.value === length - 1) {
       return;
@@ -61,8 +68,25 @@ export function PaginationButton({ currentIndex, length, flatListRef }: Props) {
     }
   }, []);
 
+  const onBackPress = useCallback(() => {
+    if (currentIndex.value === 0) {
+      return;
+    } else {
+      flatListRef.current?.scrollToIndex({
+        index: currentIndex.value - 1,
+      });
+    }
+  }, []);
+
   return (
     <View className="relative flex-row">
+      <AnimatedButton
+        style={[backBtnStyle]}
+        className="absolute w-14 -translate-x-16"
+        onPress={onBackPress}
+      >
+        <ArrowLeft size={24} color="white" strokeWidth={2} />
+      </AnimatedButton>
       <AnimatedButton style={[rnBtnStyle]} onPress={onPress}>
         <Animated.Text
           style={[rnTextStartStyle]}
