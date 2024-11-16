@@ -27,7 +27,7 @@ export function Button({
   return (
     <AnimatedPressable
       style={{ width, height }}
-      className="relative"
+      className="relative shadow-[0_5px_7px_rgba(97,97,97,0.2)]"
       onPress={onPress}
     >
       <Canvas style={{ flex: 1 }}>
