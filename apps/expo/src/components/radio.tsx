@@ -2,8 +2,6 @@ import type { LayoutChangeEvent } from "react-native";
 import { useEffect, useRef, useState } from "react";
 import { ScrollView, View } from "react-native";
 
-import { Button } from "./button";
-
 export interface RadioGroupOptionValue<T extends string> {
   value: T;
   label: string;
@@ -12,7 +10,6 @@ export interface RadioGroupOptionValue<T extends string> {
 export function RadioGroup<T extends string>({
   options,
   selected,
-  onChange,
 }: {
   options: RadioGroupOptionValue<T>[];
   selected: T | null | undefined;
@@ -57,14 +54,7 @@ export function RadioGroup<T extends string>({
           <View
             key={option.value}
             onLayout={(event) => handleButtonLayout(event, index)}
-          >
-            <Button
-              variant={selected === option.value ? "primary" : "secondary"}
-              onPress={() => onChange(option.value)}
-            >
-              {option.label}
-            </Button>
-          </View>
+          ></View>
         ))}
       </View>
     </ScrollView>

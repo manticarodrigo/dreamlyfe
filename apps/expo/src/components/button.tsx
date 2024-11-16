@@ -1,66 +1,47 @@
-import type { TouchableOpacityProps } from "react-native";
-import { Text, TouchableOpacity } from "react-native";
+import { Pressable, View } from "react-native";
 import Animated from "react-native-reanimated";
+import {
+  Blend,
+  Canvas,
+  ColorShader,
+  FractalNoise,
+  RoundedRect,
+  Shadow,
+} from "@shopify/react-native-skia";
 
-const button = {
-  primary: "bg-primary",
-  secondary: "bg-secondary",
-};
-
-const text = {
-  primary: "text-background",
-  secondary: "text-background",
-};
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export function Button({
+  width = 250,
+  height = 57,
   children,
-  variant = "primary",
-  ...props
-}: { variant?: "primary" | "secondary" } & TouchableOpacityProps) {
-  const isText = typeof children === "string";
-  return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      {...props}
-      className={`h-14 items-center justify-center rounded-full shadow ${props.disabled ? button.secondary : button[variant]}${props.className ? ` ${props.className}` : ""}`}
-    >
-      {isText ? (
-        <Text
-          className={`font-medium ${props.disabled ? "text-background/90" : text[variant]}`}
-        >
-          {children}
-        </Text>
-      ) : (
-        children
-      )}
-    </TouchableOpacity>
-  );
-}
+  onPress,
+}: {
+  width?: number;
+  height?: number;
+  children: React.ReactNode;
+  onPress: () => void;
+}) {
+  const r = Math.ceil(height / 2);
 
-const AnimatedTouchableOpacity =
-  Animated.createAnimatedComponent(TouchableOpacity);
-
-export function AnimatedButton({
-  children,
-  variant = "primary",
-  ...props
-}: { variant?: "primary" | "secondary" } & TouchableOpacityProps) {
-  const isText = typeof children === "string";
   return (
-    <AnimatedTouchableOpacity
-      activeOpacity={0.8}
-      {...props}
-      className={`h-14 items-center justify-center rounded-full shadow ${props.disabled ? button.secondary : button[variant]}${props.className ? ` ${props.className}` : ""}`}
+    <AnimatedPressable
+      style={{ width, height }}
+      className="relative"
+      onPress={onPress}
     >
-      {isText ? (
-        <Text
-          className={`font-medium ${props.disabled ? "text-background/90" : text[variant]}`}
-        >
-          {children}
-        </Text>
-      ) : (
-        children
-      )}
-    </AnimatedTouchableOpacity>
+      <Canvas style={{ flex: 1 }}>
+        <RoundedRect x={0} y={0} width={width} height={height} r={r}>
+          <Blend mode="overlay">
+            <ColorShader color="#4F64FD" />
+            <FractalNoise freqX={1} freqY={1} octaves={20} seed={0} />
+          </Blend>
+          <Shadow dx={0} dy={2} blur={10} color="white" inner />
+        </RoundedRect>
+      </Canvas>
+      <View className="absolute flex h-full w-full items-center justify-center">
+        {children}
+      </View>
+    </AnimatedPressable>
   );
 }

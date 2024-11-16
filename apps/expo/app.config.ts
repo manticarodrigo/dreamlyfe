@@ -39,5 +39,15 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     tsconfigPaths: true,
     typedRoutes: true,
   },
-  plugins: ["expo-router", "expo-video", "expo-secure-store"],
+  plugins: [
+    "expo-router",
+    "expo-video",
+    "expo-secure-store",
+    [
+      "expo-font",
+      {
+        fonts: ["./assets/fonts/SF-Compact-Rounded-Medium.otf"],
+      },
+    ],
+  ],
 });

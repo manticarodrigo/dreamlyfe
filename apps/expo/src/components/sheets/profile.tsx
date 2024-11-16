@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import ActionSheet, { SheetManager } from "react-native-actions-sheet";
+import ActionSheet from "react-native-actions-sheet";
 
 import "react-native-svg";
 
@@ -7,7 +7,6 @@ import React, { useState } from "react";
 
 import type { RadioGroupOptionValue } from "../radio";
 import { api } from "~/utils/api";
-import { Button } from "../button";
 import { RadioGroup } from "../radio";
 import { useUser } from "../user";
 
@@ -60,8 +59,6 @@ export function ProfileModal() {
     { enabled: !!userId },
   );
 
-  const upsert = api.user.profile.upsert.useMutation();
-
   const [formValues, setFormValues] = useState<FormValues>({
     ...profile.data,
   });
@@ -75,25 +72,6 @@ export function ProfileModal() {
         [field]: value,
       }));
   }
-
-  function saveProfile() {
-    if (userId) {
-      upsert.mutate(
-        { ...formValues, userId },
-        {
-          onSuccess: () => {
-            void profile.refetch();
-          },
-        },
-      );
-    }
-
-    void SheetManager.hide("profile");
-  }
-
-  const hasChanges = Object.entries(formValues).some(
-    ([key, value]) => profile.data?.[key as keyof FormValues] !== value,
-  );
 
   return (
     <ActionSheet
@@ -158,12 +136,6 @@ export function ProfileModal() {
             onChange={createOnChangeField("relationshipDuration")}
           />
         </Section>
-        <Button
-          variant={hasChanges ? "primary" : "secondary"}
-          onPress={saveProfile}
-        >
-          Save Profile
-        </Button>
       </View>
     </ActionSheet>
   );

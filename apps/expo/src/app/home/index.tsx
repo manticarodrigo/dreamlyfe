@@ -1,10 +1,8 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { SheetManager } from "react-native-actions-sheet";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, Stack } from "expo-router";
-import { Menu, Shield, SlidersHorizontal } from "lucide-react-native";
+import { Menu, Shield } from "lucide-react-native";
 
-import { Button } from "~/components/button";
 import { Screen } from "~/components/screen";
 
 import "~/components/sheets/profile";
@@ -53,14 +51,6 @@ export default function Home() {
           <Link href="/home/posts">
             <Text className="font-medium text-primary">View Posts</Text>
           </Link>
-        </View>
-        <View className="mt-auto w-full flex-row justify-between gap-2 p-4">
-          <Button className="w-14" onPress={() => SheetManager.show("profile")}>
-            <SlidersHorizontal size={22} color="white" />
-          </Button>
-          <Button disabled className="flex-1">
-            Check the Flags
-          </Button>
         </View>
       </SafeAreaView>
     </Screen>

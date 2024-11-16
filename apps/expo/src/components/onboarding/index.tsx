@@ -39,11 +39,11 @@ const pages = [
         </View>
         <View className="mt-auto items-center">
           <View className="mt-auto max-w-sm px-6 py-40">
-            <Text className="text-3xl font-semibold text-foreground">
+            <Text className="font-sans text-3xl font-semibold text-foreground">
               Hi there! 👋
             </Text>
             <View className="flex-row items-center gap-2">
-              <Text className="flex-row text-3xl font-semibold text-foreground">
+              <Text className="flex-row font-sans text-3xl font-semibold text-foreground">
                 Welcome to
               </Text>
               <Image
